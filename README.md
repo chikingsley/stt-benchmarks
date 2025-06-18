@@ -22,18 +22,39 @@ Python tools for [WhisperKit](https://github.com/argmaxinc/whisperkit) and [Whis
 > If you are looking for more features such as speaker diarization and upgraded performance, check out [WhisperKit Pro](https://huggingface.co/argmaxinc/whisperkit-pro)!
 
 ## Table of Contents
-- [Installation](#installation)
-- [Model Generation (Apple)](#model-generation)
-- [Model Generation (Android)](#model-generation-android)
-- [Model Evaluation (Apple)](#evaluate)
-- [Python Inference](#python-inference)
-- [Example SwiftUI App](#example-swiftui-app)
-- [Quality-of-Inference](#qoi)
-- [FAQ](#faq)
-- [Citation](#citation)
+- [whisperkittools](#whisperkittools)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [ Model Generation (Apple)](#-model-generation-apple)
+    - [ Publishing Models](#-publishing-models)
+  - [ Model Generation (Android)](#-model-generation-android)
+  - [ Model Evaluation (Apple)](#-model-evaluation-apple)
+    - [ Model Evaluation on Custom Dataset](#-model-evaluation-on-custom-dataset)
+  - [Python Inference](#python-inference)
+  - [Example SwiftUI App](#example-swiftui-app)
+  - [ WhisperKit Quality and Performance Benchmarks](#-whisperkit-quality-and-performance-benchmarks)
+  - [FAQ](#faq)
+  - [Citation](#citation)
 
 
 ## Installation
+
+### Option 1: Using Poetry (Recommended)
+- **Step 1:** [Fork this repository](https://github.com/argmaxinc/whisperkittools/fork)
+- **Step 2:** Install Poetry if you haven't already:
+```shell
+curl -sSL https://install.python-poetry.org | python3 -
+```
+- **Step 3:** Install dependencies and create virtual environment:
+```shell
+cd WHISPERKIT_ROOT_DIR && poetry install
+```
+- **Step 4:** Activate the virtual environment:
+```shell
+poetry shell
+```
+
+### Option 2: Using pip
 - **Step 1:** [Fork this repository](https://github.com/argmaxinc/whisperkittools/fork)
 - **Step 2:** Create a Python virtual environment, e.g.:
 ```shell
@@ -42,6 +63,37 @@ conda create -n whisperkit python=3.11 -y && conda activate whisperkit
 - **Step 3:** Install the base package as editable
 ```shell
 cd WHISPERKIT_ROOT_DIR && pip install -e .
+```
+
+### Optional Dependencies
+
+To install optional dependency groups with Poetry:
+```shell
+# Install pipelines dependencies (for OpenAI and MLX Whisper integration)
+poetry install --with pipelines
+
+# Install evaluation dependencies (for model evaluation)
+poetry install --with evals
+
+# Install diarization dependencies (for speaker diarization)
+poetry install --with diarization
+
+# Install development dependencies (for contributing)
+poetry install --with dev
+
+# Install multiple groups at once
+poetry install --with pipelines,evals,dev
+```
+
+With pip, you can install extras using:
+```shell
+# Install with optional dependencies
+pip install -e ".[pipelines,evals,diarization]"
+```
+
+**Note on Android Dependencies:** Android-specific dependencies (`qai-hub`, `qai-hub-models`) are currently incompatible with torch 2.6.0 and must be installed manually in a compatible environment (Python <3.11, torch <2.6.0):
+```shell
+pip install qai-hub qai-hub-models
 ```
 
 ## <a name="model-generation-apple"></a> Model Generation (Apple)

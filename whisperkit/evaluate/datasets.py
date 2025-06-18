@@ -23,7 +23,9 @@ def get_dataset(dataset_name, cache_dir, max_num_samples=-1, language_subset=Non
         raise ValueError(f"Dataset not yet registered: {dataset_name}")
 
     if language_subset is not None:
-        assert language_subset in SUPPORTED_LANGUAGES, f"Unsupported language: {language_subset}"
+        assert language_subset in SUPPORTED_LANGUAGES, (
+            f"Unsupported language: {language_subset}"
+        )
         logger.info(f"Filtering dataset for language: {language_subset}")
 
     logger.info(f"""\n
@@ -42,11 +44,10 @@ def get_dataset(dataset_name, cache_dir, max_num_samples=-1, language_subset=Non
             repo_type="dataset",
             allow_patterns="*",
             local_dir=cache_dir,
-            local_dir_use_symlinks=True
         )
 
         # Unzip if necessary
-        zip_files = [f for f in os.listdir(cache_dir) if f.endswith('.zip')]
+        zip_files = [f for f in os.listdir(cache_dir) if f.endswith(".zip")]
         if len(zip_files) > 0:
             logger.info(f"Unzipping {len(zip_files)} files")
             for zip_file in zip_files:
@@ -64,8 +65,7 @@ def get_dataset(dataset_name, cache_dir, max_num_samples=-1, language_subset=Non
     audio_paths = {path.split("/")[-1]: path for path in audio_paths}
 
     metadata_path = os.path.join(cache_dir, "metadata.json")
-    assert os.path.exists(metadata_path), \
-        f"Missing metadata file: {metadata_path}"
+    assert os.path.exists(metadata_path), f"Missing metadata file: {metadata_path}"
 
     with open(metadata_path, "r") as f:
         dataset = json.load(f)
@@ -81,19 +81,25 @@ def get_dataset(dataset_name, cache_dir, max_num_samples=-1, language_subset=Non
         try:
             current_path = audio_paths[current_fname]
         except KeyError:
-            current_path = audio_paths[
-                current_fname.split(".")[0] + ".wav"]
+            current_path = audio_paths[current_fname.split(".")[0] + ".wav"]
         batch["norm_path"] = current_path
 
         # Normalize text
         possible_keys = [
-            "text", "sentence", "normalized_text", "transcript", "transcription"]
+            "text",
+            "sentence",
+            "normalized_text",
+            "transcript",
+            "transcription",
+        ]
         for key in possible_keys:
             if key in batch:
                 break
         batch["original_text"] = batch[key]
         if not isinstance(batch[key], str):
-            logger.warning(f"non-string text dectected: {batch[key]} | Class: {type(batch[key])}")
+            logger.warning(
+                f"non-string text dectected: {batch[key]} | Class: {type(batch[key])}"
+            )
             logger.warning(f"Conversion to string: {str(batch[key])}")
         batch["norm_text"] = text_normalizer(str(batch[key]))
 
@@ -123,12 +129,17 @@ def get_dataset(dataset_name, cache_dir, max_num_samples=-1, language_subset=Non
 
 def _get_audio_paths(source_dir):
     AUDIO_EXTENSIONS = [".wav", ".flac", ".mp3"]
-    def filter_audio_ext(f): return os.path.splitext(f)[1] in AUDIO_EXTENSIONS
+
+    def filter_audio_ext(f):
+        return os.path.splitext(f)[1] in AUDIO_EXTENSIONS
 
     audio_files = []
     count = 0
     for parent, _, files in os.walk(source_dir):
-        def map_join(p): return os.path.join(parent, p)
+
+        def map_join(p):
+            return os.path.join(parent, p)
+
         matches = list(map(map_join, filter(filter_audio_ext, files)))
 
         count += len(matches)
