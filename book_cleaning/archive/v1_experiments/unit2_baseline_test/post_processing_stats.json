@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-06-20T09:37:27.999721",
+  "stats": {
+    "paragraphs_merged": 220,
+    "headers_removed": 13,
+    "formatting_fixes": 8,
+    "lines_processed": 919
+  },
+  "processing_summary": {
+    "total_lines": 919,
+    "efficiency": "23.9%"
+  }
+}

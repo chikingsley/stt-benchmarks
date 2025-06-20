@@ -1,0 +1,75 @@
+{
+  "timestamp": "2025-06-19T13:26:54.012957",
+  "comparison_summary": {
+    "pdf_file": "Colloquial French 1.pdf",
+    "ground_truth": "archive/test_outputs/output-mistral-test-correct.md",
+    "models_tested": 2,
+    "successful_models": 2
+  },
+  "results": [
+    {
+      "model": "gemini-2.5-pro",
+      "processing_time": 28.999427795410156,
+      "text_length": 3608,
+      "metrics": {
+        "overall_similarity": 0.5331858407079646,
+        "word_similarity": 0.4900074019245004,
+        "line_similarity": 0.2601626016260163,
+        "content_preservation": 0.6064814814814815,
+        "exercise_accuracy": 0.0,
+        "content_analysis": {
+          "ground_truth": {
+            "exercises": 1,
+            "dialogues": 1,
+            "cd_references": 2,
+            "french_sentences": 27
+          },
+          "extracted": {
+            "exercises": 3,
+            "dialogues": 0,
+            "cd_references": 1,
+            "french_sentences": 25
+          }
+        }
+      },
+      "metadata": {
+        "pages_processed": 3,
+        "model_used": "gemini-2.5-pro"
+      }
+    },
+    {
+      "model": "gemini-2.5-flash",
+      "processing_time": 10.728808164596558,
+      "text_length": 3824,
+      "metrics": {
+        "overall_similarity": 0.45977011494252873,
+        "word_similarity": 0.48399106478034254,
+        "line_similarity": 0.24369747899159663,
+        "content_preservation": 0.6064814814814815,
+        "exercise_accuracy": 0.0,
+        "content_analysis": {
+          "ground_truth": {
+            "exercises": 1,
+            "dialogues": 1,
+            "cd_references": 2,
+            "french_sentences": 27
+          },
+          "extracted": {
+            "exercises": 3,
+            "dialogues": 0,
+            "cd_references": 1,
+            "french_sentences": 25
+          }
+        }
+      },
+      "metadata": {
+        "pages_processed": 3,
+        "model_used": "gemini-2.5-flash"
+      }
+    }
+  ],
+  "ranking": [
+    "gemini-2.5-pro",
+    "gemini-2.5-flash"
+  ]
+}

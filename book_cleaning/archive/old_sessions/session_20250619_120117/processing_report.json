@@ -1,0 +1,31 @@
+{
+  "session_info": {
+    "timestamp": "2025-06-19T12:02:23.226494",
+    "input_file": "/Volumes/simons-enjoyment/GitHub/whisperkittools/book_cleaning/Colloquial French 1.pdf",
+    "output_file": "formatted_output/session_20250619_120117/Colloquial French 1_formatted_v2.md",
+    "config_used": "/Volumes/simons-enjoyment/GitHub/whisperkittools/book_cleaning/improved_config.yaml"
+  },
+  "processing_stats": {
+    "pages_processed": 3,
+    "total_attempts": 3,
+    "models_used": {
+      "mistral-medium-latest": 2,
+      "mistral-large-latest": 1
+    }
+  },
+  "token_usage": {
+    "ocr": 81538.5,
+    "analysis": 0,
+    "formatting": 908.7
+  },
+  "estimated_cost": {
+    "ocr": 0.163077,
+    "formatting": 0.0018174,
+    "total": 0.1648944
+  },
+  "rate_limit_info": {
+    "tokens_used": 82447.2,
+    "percent_of_minute_limit": 16.48944,
+    "percent_of_month_limit": 0.008244719999999999
+  }
+}

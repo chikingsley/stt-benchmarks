@@ -1,0 +1,65 @@
+book_info:
+  title: "Colloquial French"
+  type: "language_textbook"
+  language: "french"
+
+section_patterns:
+  unit: "Unit \\(\\d+\\)"
+  dialogue: "Dialogue \\d+"
+  exercise: "Exercise \\d+"
+  language_points: "Language points"
+
+formatting_rules:
+  preserve_bold: true
+  preserve_italics: true
+  heading_levels:
+    unit: 2
+    dialogue: 3
+    exercise: 3
+    language_points: 2
+  
+  # Key formatting instructions
+  french_text_format: "bold"
+  english_translation_format: "italics"
+  grammatical_terms_format: "bold"
+  
+  bold_terms: 
+    - "habiter"
+    - "travailler" 
+    - "parler"
+    - "-er"
+    - "je"
+    - "tu" 
+    - "il"
+    - "elle"
+    - "nous"
+    - "vous"
+    - "ils"
+    - "elles"
+    - "à"
+    - "en"
+    - "au"
+    - "aux"
+    - "une"
+    - "un"
+    - "le"
+    - "la"
+    - "les"
+
+reference_patterns:
+  cd_tracks: "\\(CD \\d+;\\s*\\d+\\)"
+
+special_sections:
+  - "Did you notice"
+  - "Exercise"
+
+dialogue_formatting:
+  speaker_format: "bold"
+  french_format: "normal"
+  english_format: "italics"
+  preserve_structure: true
+
+table_handling:
+  verb_conjugations: "simple_list"
+  preserve_tables: false
+  convert_to_markdown: true

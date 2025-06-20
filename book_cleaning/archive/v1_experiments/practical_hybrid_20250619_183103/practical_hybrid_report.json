@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-06-19T18:32:14.407929",
+  "pdf_file": "Colloquial French 1.pdf",
+  "session_dir": "formatted_output/practical_hybrid_20250619_183103",
+  "processing_times": {
+    "flash_ocr": 15.173530101776123,
+    "pro_qa": 54.77812671661377,
+    "total": 69.95165681838989
+  },
+  "text_lengths": {
+    "flash": 4556,
+    "pro": 4576
+  },
+  "pages_processed": 3,
+  "improvement_metrics": {
+    "flash_to_pro_similarity": 0.9947437582128777,
+    "length_change": 20,
+    "length_change_percent": 0.4389815627743635,
+    "word_change": 1,
+    "word_change_percent": 0.1610305958132045,
+    "line_change": 3,
+    "words_flash": 621,
+    "words_pro": 622,
+    "lines_flash": 130,
+    "lines_pro": 133,
+    "estimated_quality_improvement": 0.7333333333333334
+  }
+}

@@ -1,0 +1,8 @@
+Info: starting inference, sampling: True, audio temp: 0.0, text temp: 0.0
+[1;34m[Info][0m retrieving checkpoint
+[1;34m[Info][0m loading mimi
+[1;34m[Info][0m mimi loaded
+[1;34m[Info][0m loading moshi
+[1;34m[Info][0m moshi loaded
+[1;34m[Info][0m loading input file french-i-lesson-01-30s.mp3
+ This is Unit 1 of Pimsleur's French 1. Listen to this French conversation. Est-ce que vous comprenez l'anglais ? Non, monsieur. Je ne comprends pas l'anglais. Je comprends un peu le français. Est-ce que vous êtes américain ? Oui, mademoiselle. In the next few minutes, you'll learn not only to understand this conversation, but to take part in it yourself. Imagine an American man sitting next to a French woman. He wants to begin a conversation, so he's...Info: processed 394 steps in 40s, 101.87ms/step

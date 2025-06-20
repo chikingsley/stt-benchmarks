@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "duration": 305.9860439300537,
+  "transcription": "This is Unit 1 of Pimzler's French 1. Listen to this French conversation. Pardon. Is you know the English? No, monsieur. I don't understand the English. I understand a little the French. Is that you are American? Yes, mademoiselle. In the next few minutes, you'll learn not only to understand this conversation, but to take part in it yourself. Imagine an American man sitting next to a French woman. He wants to begin a conversation, so he says,",
+  "clean_transcription": "this is unit 1 of pimzler's french 1 listen to this french conversation pardon is you know the english no monsieur i don't understand the english i understand a little the french is that you are american yes mademoiselle in the next few minutes you'll learn not only to understand this conversation but to take part in it yourself imagine an american man sitting next to a french woman he wants to begin a conversation so he says",
+  "wer": 0.35526315789473684,
+  "framework": "WhisperKit",
+  "description": "Distil Large-v3 (Faster)",
+  "model_version": "distil-whisper/distil-large-v3"
+}

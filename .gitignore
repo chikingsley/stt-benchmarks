@@ -144,10 +144,10 @@ dmypy.json
 .claude/
 
 # Output directories
+whisperkit/
 whisper_output/
 transcription_results/
 z_output/
-archive/
 
 # OS generated files
 .DS_Store

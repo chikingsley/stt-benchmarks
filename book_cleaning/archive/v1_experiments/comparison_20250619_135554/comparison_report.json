@@ -1,0 +1,90 @@
+{
+  "timestamp": "2025-06-19T13:57:42.510673",
+  "comparison_summary": {
+    "pdf_file": "Colloquial French 1.pdf",
+    "ground_truth": "archive/test_outputs/output-mistral-test-correct.md",
+    "models_tested": 3,
+    "successful_models": 2
+  },
+  "results": [
+    {
+      "model": "gemini-2.5-pro",
+      "processing_time": 47.741278886795044,
+      "text_length": 6009,
+      "metrics": {
+        "overall_similarity": 0.7404384549682073,
+        "word_similarity": 0.6286353467561522,
+        "line_similarity": 0.16666666666666666,
+        "content_preservation": 1.0,
+        "exercise_accuracy": 0.0,
+        "content_analysis": {
+          "ground_truth": {
+            "exercises": 1,
+            "dialogues": 1,
+            "cd_references": 2,
+            "french_sentences": 27
+          },
+          "extracted": {
+            "exercises": 3,
+            "dialogues": 1,
+            "cd_references": 3,
+            "french_sentences": 39
+          }
+        }
+      },
+      "metadata": {
+        "pages_processed": 5,
+        "model_used": "gemini-2.5-pro"
+      }
+    },
+    {
+      "model": "gemini-2.5-flash",
+      "processing_time": 13.6381356716156,
+      "text_length": 6783,
+      "metrics": {
+        "overall_similarity": 0.6331889311289894,
+        "word_similarity": 0.6286990508096035,
+        "line_similarity": 0.08982035928143713,
+        "content_preservation": 1.0,
+        "exercise_accuracy": 0.0,
+        "content_analysis": {
+          "ground_truth": {
+            "exercises": 1,
+            "dialogues": 1,
+            "cd_references": 2,
+            "french_sentences": 27
+          },
+          "extracted": {
+            "exercises": 3,
+            "dialogues": 1,
+            "cd_references": 3,
+            "french_sentences": 39
+          }
+        }
+      },
+      "metadata": {
+        "pages_processed": 5,
+        "model_used": "gemini-2.5-flash"
+      }
+    },
+    {
+      "model": "gemini-2.0-flash",
+      "processing_time": 41.18491196632385,
+      "text_length": 0,
+      "metrics": {
+        "overall_similarity": 0,
+        "word_similarity": 0,
+        "line_similarity": 0,
+        "content_preservation": 0,
+        "exercise_accuracy": 0,
+        "error": "Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 4. Meaning that the model was reciting from copyrighted material."
+      },
+      "metadata": null
+    }
+  ],
+  "ranking": [
+    "gemini-2.5-pro",
+    "gemini-2.5-flash",
+    "gemini-2.0-flash"
+  ]
+}

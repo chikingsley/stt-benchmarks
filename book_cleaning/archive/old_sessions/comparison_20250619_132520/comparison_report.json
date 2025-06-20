@@ -1,0 +1,58 @@
+{
+  "timestamp": "2025-06-19T13:25:32.092187",
+  "comparison_summary": {
+    "pdf_file": "Colloquial French 1.pdf",
+    "ground_truth": "archive/test_outputs/output-mistral-test-correct.md",
+    "models_tested": 3,
+    "successful_models": 0
+  },
+  "results": [
+    {
+      "model": "mistral-ocr-latest",
+      "processing_time": 1.9005241394042969,
+      "text_length": 0,
+      "metrics": {
+        "overall_similarity": 0,
+        "word_similarity": 0,
+        "line_similarity": 0,
+        "content_preservation": 0,
+        "exercise_accuracy": 0,
+        "error": "API error occurred: Status 401\nUnauthorized"
+      },
+      "metadata": null
+    },
+    {
+      "model": "mistral-ocr-latest",
+      "processing_time": 1.9005241394042969,
+      "text_length": 0,
+      "metrics": {
+        "overall_similarity": 0,
+        "word_similarity": 0,
+        "line_similarity": 0,
+        "content_preservation": 0,
+        "exercise_accuracy": 0,
+        "error": "API error occurred: Status 401\nUnauthorized"
+      },
+      "metadata": null
+    },
+    {
+      "model": "mistral-ocr-latest",
+      "processing_time": 1.9005241394042969,
+      "text_length": 0,
+      "metrics": {
+        "overall_similarity": 0,
+        "word_similarity": 0,
+        "line_similarity": 0,
+        "content_preservation": 0,
+        "exercise_accuracy": 0,
+        "error": "API error occurred: Status 401\nUnauthorized"
+      },
+      "metadata": null
+    }
+  ],
+  "ranking": [
+    "mistral-ocr-latest",
+    "mistral-ocr-latest",
+    "mistral-ocr-latest"
+  ]
+}

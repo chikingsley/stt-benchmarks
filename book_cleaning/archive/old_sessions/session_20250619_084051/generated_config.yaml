@@ -1,0 +1,83 @@
+book_info:
+  title: "Colloquial French"
+  subtitle: "The Complete Course for Beginners"
+  authors: ["Valérie Demouy", "Alan Moys"]
+  type: "language_textbook"
+  language: "french"
+  publisher: "Routledge"
+  edition: "3rd"
+  year: "2006"
+  isbn:
+    - "978-0-415-34013-7 (pbk)"
+    - "978-0-415-34014-4 (audio CDs)"
+    - "978-0-415-43163-7 (pack)"
+    - "978-1-315-74144-4 (eBook Pack)"
+
+section_patterns:
+  unit: "Unit (\d+)"
+  dialogue: "Dialogue"
+  exercise: "Exercise"
+  language_points: "Language points"
+  cultural_points: "cultural points"
+  pronunciation_guide: "Pronunciation guide"
+  reference_grammar: "Reference grammar"
+  key_to_exercises: "Key to exercises"
+  glossary: "French-English glossary"
+  grammar_index: "Grammar index"
+  topic_index: "Topic and functions index"
+
+formatting_rules:
+  preserve_bold: true
+  preserve_italics: true
+  heading_levels:
+    unit: 2
+    dialogue: 3
+    exercise: 4
+    language_points: 3
+    cultural_points: 3
+    pronunciation_guide: 2
+    reference_grammar: 2
+    key_to_exercises: 2
+    glossary: 2
+    grammar_index: 2
+    topic_index: 2
+
+reference_patterns:
+  cd_tracks: "CD \d+"
+  page_numbers: "\(\d+\)"
+
+special_sections:
+  - "Acknowledgements"
+  - "Introduction"
+  - "How is the course organised?"
+  - "What is in a unit?"
+  - "The recordings and how to work with them"
+  - "General learning tips"
+
+content_structure:
+  - "Acknowledgements"
+  - "Introduction"
+  - "Pronunciation guide"
+  - "Units (1-18)"
+  - "Reference grammar"
+  - "Key to exercises"
+  - "French-English glossary"
+  - "Grammar index"
+  - "Topic and functions index"
+
+unit_structure:
+  - "Dialogues"
+  - "Language points"
+  - "Exercises"
+  - "Cultural points (optional)"
+  - "Short texts (optional)"
+
+dialogue_structure:
+  - "French dialogue"
+  - "English translation (Units 1-8)"
+  - "Glossary (Units 9 onwards)"
+
+additional_features:
+  - "Recordings of dialogues and exercises"
+  - "Cultural points about France"
+  - "Short texts for reading practice"

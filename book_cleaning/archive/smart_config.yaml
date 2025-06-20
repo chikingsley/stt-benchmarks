@@ -1,0 +1,60 @@
+book_info:
+  title: "Colloquial French"
+  type: "language_textbook"
+  language: "french"
+
+formatting_rules:
+  # Core principle: Be a formatter, not an editor
+  preserve_content: true
+  add_translations: false
+  
+  # Text formatting patterns
+  french_examples:
+    pattern: "^(Elle|Il|Je|Tu|Nous|Vous|Ils|Elles) .+\\.$"
+    format: "bold_with_verb_emphasis"
+    
+  english_translations:
+    pattern: "^(She|He|I|You|We|They) .+\\.$"
+    format: "italics"
+    
+  section_headers:
+    main: "##"
+    subsection: "###"
+    
+  special_formatting:
+    - pattern: "Did you notice?"
+      level: "###"
+    - pattern: "Exercise \\d+"
+      level: "###"
+    
+  preserve_exact:
+    - dialogue_order
+    - exercise_content
+    - cd_references
+    
+  terms_to_bold:
+    - "je"
+    - "tu" 
+    - "il"
+    - "elle"
+    - "nous"
+    - "vous"
+    - "ils"
+    - "elles"
+    - "-er"
+    - "liaison"
+    - "conjugation"
+    
+instructions: |
+  CRITICAL RULES:
+  1. You are a FORMATTER only - do not translate, add content, or reorganize
+  2. Preserve the EXACT order and content from the source
+  3. If something looks wrong (like exercise numbers), format it as-is
+  4. Only apply formatting, never change content
+  
+  SPECIFIC PATTERNS:
+  - French examples with verbs: **Elle _habite_ à Paris**
+  - Standalone French: **Vous êtes français.**
+  - English after French: _You are French._
+  - Section headers: Clean, no extra prefixes
+  - Dialogues: Keep exact speaker order from source

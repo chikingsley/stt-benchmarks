@@ -1,0 +1,56 @@
+{
+  "audio_file": "/Volumes/simons-enjoyment/GitHub/whisperkittools/french-i-lesson-01-30s.mp3",
+  "reference_text": "this is unit 1 of pimsleur's french 1 listen to this french conversation est-ce que vous comprenez l'anglais  non monsieur je ne comprends pas l'anglais je comprends un peu le fran\u00e7ais est-ce que vous \u00eates am\u00e9ricain  oui mademoiselle in the next few minutes you'll learn not only to understand this conversation but to take part in it yourself imagine an american man sitting next to a french woman he wants to begin a conversation so he's",
+  "timestamp": "2025-06-20T12:25:05.177554",
+  "results": {
+    "kyutai-standard": {
+      "success": true,
+      "duration": 85.84671878814697,
+      "transcription": "\u001b[1;34m[Info]\u001b[0m retrieving checkpoint \u001b[1;34m[Info]\u001b[0m mimi loaded \u001b[1;34m[Info]\u001b[0m moshi loaded This is Unit 1 of Pimsleur's French 1. Listen to this French conversation. Est-ce que vous comprenez l'anglais ? Non, monsieur. Je ne comprends pas l'anglais. Je comprends un peu le fran\u00e7ais. Est-ce que vous \u00eates am\u00e9ricain ? Oui, mademoiselle. In the next few minutes, you'll learn not only to understand this conversation, but to take part in it yourself. Imagine an American man sitting next to a French woman. He wants to begin a conversation, so he's...",
+      "clean_transcription": "134minfo0m retrieving checkpoint 134minfo0m mimi loaded 134minfo0m moshi loaded this is unit 1 of pimsleur's french 1 listen to this french conversation est-ce que vous comprenez l'anglais  non monsieur je ne comprends pas l'anglais je comprends un peu le fran\u00e7ais est-ce que vous \u00eates am\u00e9ricain  oui mademoiselle in the next few minutes you'll learn not only to understand this conversation but to take part in it yourself imagine an american man sitting next to a french woman he wants to begin a conversation so he's",
+      "wer": 0.11842105263157894,
+      "framework": "PyTorch",
+      "description": "Kyutai 1B PyTorch (Standard)"
+    },
+    "whisperkit-tiny": {
+      "success": true,
+      "duration": 14.39992618560791,
+      "transcription": "-This is Unit 1 of Pimmsler's French One. -Listen to this French conversation. -Pardon, est-ce que vous comprenez l'anglais? -Non monsieur, je ne comprends pas l'anglais. -Je comprends un peu le fran\u00e7ais. -Est-ce que vous \u00eates am\u00e9ricain? Wemen was Ed. In the next few minutes, you'll learn not only to understand this conversation, but to take part in it yourself. Imagine an American man sitting next to a French woman. He wants to begin a conversation, so he's",
+      "clean_transcription": "-this is unit 1 of pimmsler's french one -listen to this french conversation -pardon est-ce que vous comprenez l'anglais -non monsieur je ne comprends pas l'anglais -je comprends un peu le fran\u00e7ais -est-ce que vous \u00eates am\u00e9ricain wemen was ed in the next few minutes you'll learn not only to understand this conversation but to take part in it yourself imagine an american man sitting next to a french woman he wants to begin a conversation so he's",
+      "wer": 0.14473684210526316,
+      "framework": "WhisperKit",
+      "description": "WhisperKit Tiny (~39M params)",
+      "model_version": "openai/whisper-tiny"
+    },
+    "whisperkit-large-v3-626mb": {
+      "success": true,
+      "duration": 22.827428817749023,
+      "transcription": "This is Unit 1 of Pimsleur's French 1. Listen to this French conversation. Pardon, est-ce que vous comprenez l'anglais? Non, monsieur. Je ne comprends pas l'anglais. Je comprends un peu le fran\u00e7ais. Est-ce que vous \u00eates am\u00e9ricain? Oui, mademoiselle.",
+      "clean_transcription": "this is unit 1 of pimsleur's french 1 listen to this french conversation pardon est-ce que vous comprenez l'anglais non monsieur je ne comprends pas l'anglais je comprends un peu le fran\u00e7ais est-ce que vous \u00eates am\u00e9ricain oui mademoiselle",
+      "wer": 0.5131578947368421,
+      "framework": "WhisperKit",
+      "description": "WhisperKit Large-v3 (626MB)",
+      "model_version": "openai/whisper-large-v3-v20240930_626MB"
+    },
+    "whisperkit-large-v3-turbo-632mb": {
+      "success": true,
+      "duration": 1005.9085087776184,
+      "transcription": "This is Unit 1 of Pimsleur's French 1. Listen to this French conversation. Pardon, est-ce que vous comprenez l'anglais? Non, monsieur. Je ne comprends pas l'anglais. Je comprends un peu le fran\u00e7ais. Est-ce que vous \u00eates am\u00e9ricain? Oui, mademoiselle.",
+      "clean_transcription": "this is unit 1 of pimsleur's french 1 listen to this french conversation pardon est-ce que vous comprenez l'anglais non monsieur je ne comprends pas l'anglais je comprends un peu le fran\u00e7ais est-ce que vous \u00eates am\u00e9ricain oui mademoiselle",
+      "wer": 0.5131578947368421,
+      "framework": "WhisperKit",
+      "description": "WhisperKit Large-v3 Turbo (632MB)",
+      "model_version": "openai/whisper-large-v3-v20240930_turbo_632MB"
+    },
+    "whisperkit-distill-large-v3": {
+      "success": true,
+      "duration": 305.9860439300537,
+      "transcription": "This is Unit 1 of Pimzler's French 1. Listen to this French conversation. Pardon. Is you know the English? No, monsieur. I don't understand the English. I understand a little the French. Is that you are American? Yes, mademoiselle. In the next few minutes, you'll learn not only to understand this conversation, but to take part in it yourself. Imagine an American man sitting next to a French woman. He wants to begin a conversation, so he says,",
+      "clean_transcription": "this is unit 1 of pimzler's french 1 listen to this french conversation pardon is you know the english no monsieur i don't understand the english i understand a little the french is that you are american yes mademoiselle in the next few minutes you'll learn not only to understand this conversation but to take part in it yourself imagine an american man sitting next to a french woman he wants to begin a conversation so he says",
+      "wer": 0.35526315789473684,
+      "framework": "WhisperKit",
+      "description": "Distil Large-v3 (Faster)",
+      "model_version": "distil-whisper/distil-large-v3"
+    }
+  }
+}

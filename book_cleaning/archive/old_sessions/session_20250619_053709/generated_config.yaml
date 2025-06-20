@@ -1,0 +1,75 @@
+book_info:
+  title: "Colloquial French"
+  subtitle: "The Complete Course for Beginners"
+  authors: ["Valérie Demouy", "Alan Moys"]
+  type: "language_textbook"
+  language: "french"
+  publisher: "Routledge"
+  edition: "3rd"
+  publication_year: 2006
+  isbn:
+    paperback: "978-0-415-34013-7"
+    audio_cds: "978-0-415-34014-4"
+    pack: "978-0-415-43163-7"
+    ebook_pack: "978-1-315-74144-4"
+
+section_patterns:
+  unit: "Unit \\(\\d+\\)"
+  dialogue: "Dialogue"
+  exercise: "Exercise"
+  language_points: "Language points"
+  cultural_points: "cultural points"
+  pronunciation_guide: "Pronunciation guide"
+  reference_grammar: "Reference grammar"
+  glossary: "French-English glossary"
+  grammar_index: "Grammar index"
+  topic_index: "Topic and functions index"
+
+formatting_rules:
+  preserve_bold: true
+  preserve_italics: true
+  heading_levels:
+    unit: 2
+    dialogue: 3
+    exercise: 4
+    language_points: 3
+    cultural_points: 3
+  bold_terms: ["UN", "UNE", "LE", "LA", "Language points", "Exercises"]
+  italic_terms: ["Colloquial French", "Bon courage"]
+
+reference_patterns:
+  cd_tracks: "\\(CD \\d+;\\s*\\d+\\)"
+  page_numbers: "\\(\\d+\\)"
+
+special_sections:
+  - "Did you notice"
+  - "Grammar rules"
+  - "Vocabulary"
+  - "How is the course organised?"
+  - "What is in a unit?"
+  - "The recordings and how to work with them"
+  - "General learning tips"
+
+structure_rules:
+  unit_layout:
+    - "Dialogues"
+    - "Language points"
+    - "Exercises"
+    - "Other features"
+  initial_sections:
+    - "Acknowledgements"
+    - "Introduction"
+    - "Pronunciation guide"
+  final_sections:
+    - "Reference grammar"
+    - "Key to exercises"
+    - "French-English glossary"
+    - "Grammar index"
+    - "Topic and functions index"
+
+additional_info:
+  supplementary_content: true
+  supplementary_content_access: "AcademiceBooksSupport@informa.com"
+  learning_tips: true
+  cultural_notes: true
+  reading_skills: true
