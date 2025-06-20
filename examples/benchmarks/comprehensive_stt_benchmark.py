@@ -4,15 +4,16 @@ Comprehensive STT Benchmark: Kyutai vs WhisperKit
 Measures Word Error Rate (WER) and Processing Time for all models
 """
 
+import json
+import re
 import subprocess
 import sys
 import time
-import json
-import re
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+
 import jiwer
-from alive_progress import alive_bar
+from alive_progress import alive_bar  # type: ignore
 
 
 class STTBenchmark:
@@ -353,77 +354,17 @@ class STTBenchmark:
         self.generate_report()
 
     def generate_report(self):
-        """Generate detailed comparison report"""
-        print("\n📊 BENCHMARK RESULTS")
-        print("=" * 80)
-
-        # Sort by success, then by duration
-        successful_results = {
-            k: v for k, v in self.results.items() if v.get("success", False)
-        }
-        failed_results = {
-            k: v for k, v in self.results.items() if not v.get("success", False)
-        }
-
-        if successful_results:
-            print("\n✅ Successful Tests:")
-            print("-" * 50)
-
-            # Table header
-            print(
-                f"{'Model':<25} {'Time(s)':<8} {'WER':<8} {'RT Factor':<10} {'Framework':<12}"
-            )
-            print("-" * 70)
-
-            # Sort by WER if available, then by duration
-            if self.reference_text:
-                sorted_results = sorted(
-                    successful_results.items(),
-                    key=lambda x: (x[1].get("wer", float("inf")), x[1]["duration"]),
-                )
-            else:
-                sorted_results = sorted(
-                    successful_results.items(), key=lambda x: x[1]["duration"]
-                )
-
-            for model_name, result in sorted_results:
-                duration = result["duration"]
-                wer = result.get("wer")
-                wer_str = (
-                    f"{wer:.3f}" if wer is not None and wer != float("inf") else "N/A"
-                )
-
-                # Calculate real-time factor (assuming 30s audio)
-                rt_factor = duration / 30.0  # Adjust based on actual audio length
-                rt_str = f"{rt_factor:.1f}x"
-
-                framework = result.get("framework", "Unknown")
-
-                print(
-                    f"{model_name:<25} {duration:<8.1f} {wer_str:<8} {rt_str:<10} {framework:<12}"
-                )
-
-        if failed_results:
-            print(f"\n❌ Failed Tests ({len(failed_results)}):")
-            print("-" * 30)
-
-            for model_name, result in failed_results.items():
-                error = result.get("error", "Unknown error")[:50]
-                print(f"  {model_name}: {error}")
-
-        # Best performers
-        if successful_results and self.reference_text:
-            best_accuracy = min(
-                successful_results.items(), key=lambda x: x[1].get("wer", float("inf"))
-            )
-            best_speed = min(successful_results.items(), key=lambda x: x[1]["duration"])
-
-            print(
-                f"\n🎯 Best Accuracy: {best_accuracy[0]} (WER: {best_accuracy[1].get('wer', 'N/A'):.3f})"
-            )
-            print(f"⚡ Fastest: {best_speed[0]} ({best_speed[1]['duration']:.1f}s)")
-
-        # Save detailed report
+        """Generate detailed comparison report and save as markdown"""
+        
+        # Create markdown report
+        markdown_content = self._generate_markdown_report()
+        
+        # Save markdown report
+        markdown_path = self.results_dir / "benchmark_results.md"
+        with open(markdown_path, 'w', encoding='utf-8') as f:
+            f.write(markdown_content)
+        
+        # Save detailed JSON report
         report_path = self.results_dir / "benchmark_report.json"
         with open(report_path, "w") as f:
             json.dump(
@@ -436,9 +377,108 @@ class STTBenchmark:
                 f,
                 indent=2,
             )
-
-        print(f"\n📄 Detailed report saved: {report_path}")
-        print(f"📁 All results in: {self.results_dir}")
+        
+        # Print summary to terminal
+        print(f"\n🏁 Benchmark Complete!")
+        print(f"📊 Results saved to: {markdown_path}")
+        print(f"📄 JSON report: {report_path}")
+        print(f"📁 All files in: {self.results_dir}")
+        
+        return markdown_path
+    
+    def _generate_markdown_report(self):
+        """Generate markdown format report"""
+        
+        content = []
+        content.append("# 📊 Speech-to-Text Benchmark Results\n\n")
+        content.append(f"**Audio:** `{self.audio_path.name}`  \n")
+        content.append(f"**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  \n")
+        
+        if self.reference_text:
+            word_count = len(self.reference_text.split())
+            content.append(f"**Reference:** {word_count} words  \n")
+        
+        content.append("\n## Performance Summary\n\n")
+        
+        # Sort by success, then by duration
+        successful_results = {k: v for k, v in self.results.items() if v.get("success", False)}
+        failed_results = {k: v for k, v in self.results.items() if not v.get("success", False)}
+        
+        if successful_results:
+            content.append("| Model | Time (s) | WER | RT Factor | Framework | Status |\n")
+            content.append("|-------|----------|-----|-----------|-----------|--------|\n")
+            
+            # Sort by WER if available, then by duration
+            if self.reference_text:
+                sorted_results = sorted(successful_results.items(), 
+                                      key=lambda x: (x[1].get('wer', float('inf')), x[1]['duration']))
+            else:
+                sorted_results = sorted(successful_results.items(), 
+                                      key=lambda x: x[1]['duration'])
+            
+            for i, (model_name, result) in enumerate(sorted_results):
+                duration = result['duration']
+                wer = result.get('wer')
+                wer_str = f"{wer:.3f}" if wer is not None and wer != float('inf') else "N/A"
+                
+                # Calculate real-time factor (assuming 30s audio)
+                rt_factor = duration / 30.0
+                rt_str = f"{rt_factor:.1f}x"
+                
+                framework = result.get('framework', 'Unknown')
+                
+                # Add emoji for winners
+                if i == 0 and self.reference_text:
+                    status = "🥇 Best Accuracy"
+                elif i == 0:
+                    status = "⚡ Fastest"
+                else:
+                    status = "✅ Success"
+                
+                content.append(f"| **{model_name}** | {duration:.1f} | **{wer_str}** | {rt_str} | {framework} | {status} |\n")
+        
+        if failed_results:
+            content.append(f"\n## ❌ Failed Tests ({len(failed_results)})\n\n")
+            
+            for model_name, result in failed_results.items():
+                error = result.get('error', 'Unknown error')[:100]
+                content.append(f"- **{model_name}**: {error}\n")
+        
+        # Key findings
+        if successful_results:
+            content.append("\n## Key Findings\n\n")
+            
+            if self.reference_text:
+                best_accuracy = min(successful_results.items(), 
+                                  key=lambda x: x[1].get('wer', float('inf')))
+                best_speed = min(successful_results.items(), 
+                               key=lambda x: x[1]['duration'])
+                
+                content.append(f"### 🎯 **Accuracy Winner: {best_accuracy[0]}**\n")
+                content.append(f"- **WER: {best_accuracy[1].get('wer', 'N/A'):.3f}** ({best_accuracy[1].get('wer', 0)*100:.1f}% error rate)\n")
+                content.append(f"- Time: {best_accuracy[1]['duration']:.1f}s\n\n")
+                
+                content.append(f"### ⚡ **Speed Winner: {best_speed[0]}**\n")
+                content.append(f"- **{best_speed[1]['duration']:.1f} seconds** ({best_speed[1]['duration']/30:.1f}x real-time)\n")
+                if best_speed[1].get('wer'):
+                    content.append(f"- WER: {best_speed[1]['wer']:.3f}\n\n")
+        
+        # Transcription samples
+        if self.reference_text:
+            content.append("\n## Transcription Quality Comparison\n\n")
+            content.append(f"**Reference:**\n> {self.reference_text[:200]}...\n\n")
+            
+            for model_name, result in successful_results.items():
+                if result.get('transcription'):
+                    transcription = result['transcription'][:200]
+                    wer = result.get('wer')
+                    wer_display = f"{wer:.3f}" if wer is not None and wer != float('inf') else "N/A"
+                    content.append(f"**{model_name} (WER: {wer_display}):**\n> {transcription}...\n\n")
+        
+        content.append("\n---\n")
+        content.append(f"*Generated on {datetime.now().strftime('%Y-%m-%d at %H:%M:%S')}*")
+        
+        return ''.join(content)
 
 
 def main():
