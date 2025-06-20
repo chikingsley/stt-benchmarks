@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "duration": 56.04658913612366,
+  "transcription": "\u001b[1;34m[Info]\u001b[0m retrieving checkpoint \u001b[1;34m[Info]\u001b[0m mimi loaded \u001b[1;34m[Info]\u001b[0m moshi loaded This is Unit 1 of Pimsleur's French 1. Listen to this French conversation. Est-ce que vous comprenez l'anglais ? Non, monsieur. Je ne comprends pas l'anglais. Je comprends un peu le fran\u00e7ais. Est-ce que vous \u00eates am\u00e9ricain ? Oui, mademoiselle. In the next few minutes, you'll learn not only to understand this conversation, but to take part in it yourself. Imagine an American man sitting next to a French woman. He wants to begin a conversation, so he's...",
+  "clean_transcription": "134minfo0m retrieving checkpoint 134minfo0m mimi loaded 134minfo0m moshi loaded this is unit 1 of pimsleur's french 1 listen to this french conversation est-ce que vous comprenez l'anglais  non monsieur je ne comprends pas l'anglais je comprends un peu le fran\u00e7ais est-ce que vous \u00eates am\u00e9ricain  oui mademoiselle in the next few minutes you'll learn not only to understand this conversation but to take part in it yourself imagine an american man sitting next to a french woman he wants to begin a conversation so he's",
+  "wer": 0.11842105263157894,
+  "framework": "PyTorch",
+  "description": "Kyutai 1B PyTorch (Standard)"
+}

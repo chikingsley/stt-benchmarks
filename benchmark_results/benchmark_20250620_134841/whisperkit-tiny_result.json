@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "duration": 21.93646001815796,
+  "transcription": "-This is Unit 1 of Pimmsler's French One. -Listen to this French conversation. -Pardon, est-ce que vous comprenez l'anglais? -Non monsieur, je ne comprends pas l'anglais. -Je comprends un peu le fran\u00e7ais. -Est-ce que vous \u00eates am\u00e9ricain? Wemen was Ed. In the next few minutes, you'll learn not only to understand this conversation, but to take part in it yourself. Imagine an American man sitting next to a French woman. He wants to begin a conversation, so he's",
+  "clean_transcription": "-this is unit 1 of pimmsler's french one -listen to this french conversation -pardon est-ce que vous comprenez l'anglais -non monsieur je ne comprends pas l'anglais -je comprends un peu le fran\u00e7ais -est-ce que vous \u00eates am\u00e9ricain wemen was ed in the next few minutes you'll learn not only to understand this conversation but to take part in it yourself imagine an american man sitting next to a french woman he wants to begin a conversation so he's",
+  "wer": 0.14473684210526316,
+  "framework": "WhisperKit",
+  "description": "WhisperKit Tiny (~39M params)",
+  "model_version": "openai/whisper-tiny"
+}

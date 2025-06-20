@@ -1,91 +1,82 @@
-[tool.poetry]
+[project]
 name = "whisperkit"
 version = "0.3.0"
 description = "Argmax WhisperKit Optimization Toolkit"
-authors = ["Argmax, Inc."]
+authors = [{name = "Argmax, Inc."}]
 readme = "README.md"
-homepage = "https://github.com/argmaxinc/whisperkittools"
-repository = "https://github.com/argmaxinc/whisperkittools"
+requires-python = ">=3.10"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Operating System :: MacOS :: MacOS X",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering",
     "Topic :: Software Development",
 ]
-packages = [{include = "whisperkit"}]
+dependencies = [
+    "argmaxtools",
+    "transformers",
+    "huggingface-hub",
+    "torch==2.6.0",
+    "mistralai>=1.8.2",
+    "pyyaml>=6.0.2",
+    "pymupdf>=1.26.1",
+    "pillow>=11.2.1",
+    "google-generativeai>=0.8.5",
+    "pdf2image>=1.17.0",
+    "python-dotenv>=1.1.0",
+    "moshi>=0.2.6",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.10,<4.0"
-argmaxtools = "*"
-transformers = "*"
-huggingface-hub = "*"
-torch = "2.6.0"
-mistralai = "^1.8.2"
-pyyaml = "^6.0.2"
-pymupdf = "^1.26.1"
-pillow = "^11.2.1"
-google-generativeai = "^0.8.5"
-pdf2image = "^1.17.0"
-python-dotenv = "^1.1.0"
-moshi = "^0.2.6"
+[project.urls]
+Homepage = "https://github.com/argmaxinc/whisperkittools"
+Repository = "https://github.com/argmaxinc/whisperkittools"
 
-[tool.poetry.group.pipelines]
-optional = true
+[project.scripts]
+whisperkit-generate-model = "scripts.generate_model:cli"
+whisperkit-evaluate-model = "scripts.evaluate_model:cli"
+whisperkit-generate-readme = "scripts.generate_readme:cli"
 
-[tool.poetry.group.pipelines.dependencies]
-openai = "*"
-mlx-whisper = "*"
+[project.optional-dependencies]
+pipelines = [
+    "openai",
+    "mlx-whisper",
+]
+diarization = [
+    "pyannote-audio",
+]
+evals = [
+    "jiwer",
+    "soundfile",
+    "librosa",
+    "datasets",
+    "evaluate",
+    "transliterate",
+    "openai",
+    "mlx-whisper",
+]
 
-[tool.poetry.group.diarization]
-optional = true
+[dependency-groups]
+dev = [
+    "flake8",
+    "pytest",
+    "alive-progress",
+]
 
-[tool.poetry.group.diarization.dependencies]
-pyannote-audio = "*"
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry.group.evals]
-optional = true
-
-[tool.poetry.group.evals.dependencies]
-jiwer = "*"
-soundfile = "*"
-librosa = "*"
-datasets = "*"
-evaluate = "*"
-transliterate = "*"
-openai = "*"
-mlx-whisper = "*"
+[tool.uv]
+package = true
 
 # Android dependencies are currently incompatible with torch 2.6.0
 # qai-hub-models requires torch <2.6.0, but this project requires torch 2.6.0
 # To use android features, install these manually in a compatible environment:
 # pip install qai-hub qai-hub-models
-#
-# [tool.poetry.group.android]
-# optional = true
-#
-# [tool.poetry.group.android.dependencies]
-# qai-hub = "*"
-# qai-hub-models = "*"
-
-[tool.poetry.group.dev.dependencies]
-flake8 = "*"
-pytest = "*"
-alive-progress = "*"
-
-[tool.poetry.scripts]
-whisperkit-generate-model = "scripts.generate_model:cli"
-whisperkit-evaluate-model = "scripts.evaluate_model:cli"
-whisperkit-generate-readme = "scripts.generate_readme:cli"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
 
 [tool.flake8]
 max-line-length = 110
