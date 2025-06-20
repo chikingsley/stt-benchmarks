@@ -144,8 +144,7 @@ dmypy.json
 .claude/
 
 # Output directories
-whisperkit/
-whisper_output/
+# whisperkit/
 transcription_results/
 z_output/
 
