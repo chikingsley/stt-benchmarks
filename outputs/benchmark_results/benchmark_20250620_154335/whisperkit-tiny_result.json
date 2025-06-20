@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "duration": 11.527055740356445,
+  "error": "Invalid format specifier '.3f if wer else 'N/A'' for object of type 'float'",
+  "framework": "WhisperKit",
+  "description": "WhisperKit Tiny (~39M params)"
+}

@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "duration": 17.96736717224121,
+  "error": "Invalid format specifier '.3f if wer else 'N/A'' for object of type 'float'",
+  "framework": "WhisperKit",
+  "description": "WhisperKit Large-v3 Turbo (632MB)"
+}

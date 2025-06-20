@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "duration": 66.74078226089478,
+  "error": "Invalid format specifier '.3f if wer else 'N/A'' for object of type 'float'",
+  "framework": "PyTorch",
+  "description": "Kyutai 1B PyTorch (Standard)"
+}

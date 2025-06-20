@@ -21,7 +21,8 @@ def test_kyutai_model(audio_path, model_path="kyutai/stt-1b-en_fr"):
            "--hf-repo", model_path, "--device", "cpu", str(audio_path)]
     
     try:
-        print("🚀 Starting inference...")
+        print("🔄 Starting Kyutai inference...")
+        
         result = subprocess.run(
             cmd,
             capture_output=True,

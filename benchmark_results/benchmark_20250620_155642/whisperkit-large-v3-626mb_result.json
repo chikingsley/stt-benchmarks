@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "duration": 17.71510601043701,
+  "transcription": "This is Unit 1 of Pimsleur's French 1. Listen to this French conversation. Pardon, est-ce que vous comprenez l'anglais? Non, monsieur. Je ne comprends pas l'anglais. Je comprends un peu le fran\u00e7ais. Est-ce que vous \u00eates am\u00e9ricain? Oui, mademoiselle.",
+  "clean_transcription": "this is unit 1 of pimsleur's french 1 listen to this french conversation pardon est-ce que vous comprenez l'anglais non monsieur je ne comprends pas l'anglais je comprends un peu le fran\u00e7ais est-ce que vous \u00eates am\u00e9ricain oui mademoiselle",
+  "wer": 0.5131578947368421,
+  "framework": "WhisperKit",
+  "description": "WhisperKit Large-v3 (626MB)",
+  "model_version": "openai/whisper-large-v3-v20240930_626MB"
+}
