@@ -41,8 +41,7 @@ class STTBenchmark:
                 "description": "Kyutai 1B PyTorch (Standard)",
                 "framework": "PyTorch",
             }
-            # Note: Candle and MLX versions would need different command structures
-            # For now, testing the standard version that we know works
+            # Note: MLX models need a different inference approach - not compatible with moshi.run_inference
         }
 
         self.whisperkit_models = {
@@ -175,6 +174,11 @@ class STTBenchmark:
                 else:
                     bar.text = "❌ Failed!"
                     bar(100)
+                    
+                    print(f"❌ {model_name} FAILED!")
+                    print(f"   Error: {result.stderr[:200]}...")
+                    if result.stdout:
+                        print(f"   Output: {result.stdout[:200]}...")
 
                     return {
                         "success": False,
@@ -185,6 +189,7 @@ class STTBenchmark:
                     }
 
         except subprocess.TimeoutExpired:
+            print(f"⏰ {model_name} TIMEOUT after 5 minutes!")
             return {
                 "success": False,
                 "duration": 300,
@@ -193,6 +198,7 @@ class STTBenchmark:
                 "description": config["description"],
             }
         except Exception as e:
+            print(f"💥 {model_name} EXCEPTION: {str(e)}")
             return {
                 "success": False,
                 "duration": time.time() - start_time,

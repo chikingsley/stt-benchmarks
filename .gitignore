@@ -147,6 +147,7 @@ dmypy.json
 # whisperkit/
 transcription_results/
 z_output/
+benchmark_results/
 
 # OS generated files
 .DS_Store
